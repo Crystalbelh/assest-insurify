@@ -57,69 +57,97 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-[#1c3452] to-gray-900 text-white">
-      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">
-            Secure Your Digital Assets with Confidence
-          </h1>
-          <p class="text-xl mb-8 text-gray-300">
-            Comprehensive insurance solutions for cryptocurrencies, NFTs, and digital investments.
-            Protect your digital wealth from theft, loss, and cyber threats.
-          </p>
-          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <button
-              class="bg-primary cursor-pointer text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
-            >
-              Get Protected Today
-            </button>
-            <button
-              class="border cursor-pointer border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1c3452] transition-colors duration-300"
-            >
-              Learn More
-            </button>
-          </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center">
-          <div class="bg-white p-6 rounded-2xl shadow-2xl max-w-md">
-            <div class="bg-gray-100 rounded-xl p-4 mb-4">
-              <div class="flex justify-between mb-2">
-                <span class="text-gray-600">Portfolio Value</span>
-                <span class="text-secondary font-bold">$245,780</span>
-              </div>
-              <div class="h-2 bg-gray-300 rounded-full mb-2">
-                <div class="h-full bg-primary rounded-full" style="width: 85%"></div>
-              </div>
-              <div class="flex justify-between text-sm">
-                <span class="text-gray-600">Insured: $208,913</span>
-                <span class="text-primary">85% covered</span>
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-gray-50 p-4 rounded-lg">
-                <div class="text-sm text-gray-600 mb-1">Bitcoin</div>
-                <div class="font-bold text-secondary">$152,400</div>
-                <div class="text-xs text-primary">Fully insured</div>
-              </div>
-              <div class="bg-gray-50 p-4 rounded-lg">
-                <div class="text-sm text-gray-600 mb-1">Ethereum</div>
-                <div class="font-bold text-secondary">$68,250</div>
-                <div class="text-xs text-primary">Fully insured</div>
-              </div>
-              <div class="bg-gray-50 p-4 rounded-lg">
-                <div class="text-sm text-gray-600 mb-1">NFTs</div>
-                <div class="font-bold text-secondary">$18,900</div>
-                <div class="text-xs text-primary">Fully insured</div>
-              </div>
-              <div class="bg-gray-50 p-4 rounded-lg">
-                <div class="text-sm text-gray-600 mb-1">Other</div>
-                <div class="font-bold text-secondary">$6,230</div>
-                <div class="text-xs text-primary">Fully insured</div>
-              </div>
+    <section
+      id="home"
+      class="pt-32 pb-20 bg-gradient-to-br from-[#1c3452] to-gray-900 text-white relative overflow-hidden"
+    >
+      <div class="container mx-auto px-4">
+        <!-- Slides -->
+        <div
+          v-for="(slide, index) in slides"
+          :key="index"
+          class="flex flex-col md:flex-row items-center transition-opacity duration-700 ease-in-out"
+          :class="{
+            'opacity-100 translate-x-0': currentSlide === index,
+            'opacity-0 absolute inset-0 -translate-x-full': currentSlide !== index,
+          }"
+        >
+          <!-- Left Text -->
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+              {{ slide.title }}
+            </h1>
+            <p class="text-xl mb-8 text-gray-300">
+              {{ slide.description }}
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <button
+                class="bg-primary cursor-pointer text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
+              >
+                {{ slide.cta1 }}
+              </button>
+              <button
+                class="border cursor-pointer border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1c3452] transition-colors duration-300"
+              >
+                {{ slide.cta2 }}
+              </button>
             </div>
           </div>
+
+          <!-- Right Card -->
+          <div class="md:w-1/2 flex justify-center">
+            <div class="bg-white p-6 rounded-2xl shadow-2xl max-w-md">
+              <div class="bg-gray-100 rounded-xl p-4 mb-4">
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-600">Portfolio Value</span>
+                  <span class="text-secondary font-bold">{{ slide.stats.portfolio }}</span>
+                </div>
+                <div class="h-2 bg-gray-300 rounded-full mb-2">
+                  <div
+                    class="h-full bg-primary rounded-full"
+                    :style="{ width: slide.stats.coveragePercent }"
+                  ></div>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-600">Insured: {{ slide.stats.insured }}</span>
+                  <span class="text-primary">{{ slide.stats.coveragePercent }} covered</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div v-for="(asset, i) in slide.assets" :key="i" class="bg-gray-50 p-4 rounded-lg">
+                  <div class="text-sm text-gray-600 mb-1">{{ asset.name }}</div>
+                  <div class="font-bold text-secondary">{{ asset.value }}</div>
+                  <div class="text-xs text-primary">{{ asset.status }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Navigation Buttons -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+          <button
+            v-for="(slide, i) in slides"
+            :key="'dot-' + i"
+            @click="currentSlide = i"
+            class="w-3 h-3 rounded-full"
+            :class="currentSlide === i ? 'bg-primary' : 'bg-gray-500'"
+          ></button>
+        </div>
+
+        <!-- Prev/Next Controls -->
+        <button
+          @click="prevSlide"
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full"
+        >
+          ‹
+        </button>
+        <button
+          @click="nextSlide"
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full"
+        >
+          ›
+        </button>
       </div>
     </section>
 
@@ -298,7 +326,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white overflow-hidden">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-secondary mb-4">What Our Clients Say</h2>
@@ -307,39 +335,53 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            v-for="testimonial in testimonials"
-            :key="testimonial.id"
-            class="bg-gray-50 p-6 rounded-2xl"
-          >
-            <div class="flex items-center mb-4">
+        <!-- Scrolling Wrapper -->
+        <div class="relative">
+          <div class="flex space-x-8 animate-scroll hover:[animation-play-state:paused]">
+            <!-- Duplicate testimonials twice for infinite loop illusion -->
+            <div v-for="n in 2" :key="n" class="flex space-x-8">
               <div
-                class="w-12 h-12 bg-primary rounded-full mr-4 flex items-center justify-center text-white font-bold"
+                v-for="testimonial in testimonials"
+                :key="testimonial.id + '-copy-' + n"
+                class="bg-gray-50 p-6 rounded-2xl w-80 flex-shrink-0"
               >
-                {{ testimonial.initials }}
+                <div class="flex items-center mb-4">
+                  <div
+                    class="w-12 h-12 bg-primary rounded-full mr-4 flex items-center justify-center text-white font-bold"
+                  >
+                    {{ testimonial.initials }}
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-secondary">{{ testimonial.name }}</h4>
+                    <p class="text-gray-600 text-sm">{{ testimonial.role }}</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 italic">"{{ testimonial.quote }}"</p>
+                <div class="flex mt-4">
+                  <svg
+                    v-for="i in 5"
+                    :key="i"
+                    class="w-5 h-5 text-yellow-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                </div>
               </div>
-              <div>
-                <h4 class="font-bold text-secondary">{{ testimonial.name }}</h4>
-                <p class="text-gray-600 text-sm">{{ testimonial.role }}</p>
-              </div>
-            </div>
-            <p class="text-gray-600 italic">"{{ testimonial.quote }}"</p>
-            <div class="flex mt-4">
-              <svg
-                v-for="i in 5"
-                :key="i"
-                class="w-5 h-5 text-yellow-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
             </div>
           </div>
+
+          <!-- Optional gradient fade edges -->
+          <div
+            class="pointer-events-none absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-white to-transparent"
+          ></div>
+          <div
+            class="pointer-events-none absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white to-transparent"
+          ></div>
         </div>
       </div>
     </section>
@@ -670,7 +712,7 @@
         </div>
 
         <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2023 Assest Insurify. All rights reserved.</p>
+          <p>&copy; 2025 Assest Insurify. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -678,7 +720,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 // Reactive state variables
 const scrolled = ref(false)
@@ -767,6 +809,20 @@ const testimonials = ref([
     quote:
       'Partnering with Assest Insurify for our exchange insurance has been a game-changer. Our users feel more secure knowing their assets are protected.',
   },
+  {
+    id: 4,
+    initials: 'TR',
+    name: 'Tom R.',
+    role: 'Business Owner',
+    quote: 'They made it simple to insure my company’s digital assets — great experience!',
+  },
+  {
+    id: 5,
+    initials: 'LW',
+    name: 'Laura W.',
+    role: 'Blockchain Analyst',
+    quote: 'Excellent support and transparent policies. Highly recommend their team.',
+  },
 ])
 
 // Menu toggle handler
@@ -809,6 +865,82 @@ const handleScroll = () => {
   }
 }
 
+const currentSlide = ref(0)
+
+const slides = [
+  {
+    title: 'Secure Your Digital Assets with Confidence',
+    description:
+      'Comprehensive insurance solutions for cryptocurrencies, NFTs, and digital investments. Protect your digital wealth from theft, loss, and cyber threats.',
+    cta1: 'Get Protected Today',
+    cta2: 'Learn More',
+    stats: {
+      portfolio: '$245,780',
+      insured: '$208,913',
+      coveragePercent: '85%',
+    },
+    assets: [
+      { name: 'Bitcoin', value: '$152,400', status: 'Fully insured' },
+      { name: 'Ethereum', value: '$68,250', status: 'Fully insured' },
+      { name: 'NFTs', value: '$18,900', status: 'Fully insured' },
+      { name: 'Other', value: '$6,230', status: 'Fully insured' },
+    ],
+  },
+  {
+    title: 'Protect Your Crypto Portfolio Effortlessly',
+    description:
+      'Automatic insurance coverage for top digital assets. Focus on investing while we handle your risk protection.',
+    cta1: 'Start Now',
+    cta2: 'See How It Works',
+    stats: {
+      portfolio: '$312,000',
+      insured: '$280,000',
+      coveragePercent: '90%',
+    },
+    assets: [
+      { name: 'Bitcoin', value: '$180,000', status: 'Fully insured' },
+      { name: 'Solana', value: '$42,000', status: 'Fully insured' },
+      { name: 'NFTs', value: '$70,000', status: 'Fully insured' },
+      { name: 'Others', value: '$20,000', status: 'Fully insured' },
+    ],
+  },
+  {
+    title: 'Stay Ahead with Advanced Coverage Plans',
+    description:
+      'Customizable digital asset insurance designed for traders, collectors, and businesses — full protection made simple.',
+    cta1: 'Customize Plan',
+    cta2: 'View Pricing',
+    stats: {
+      portfolio: '$410,500',
+      insured: '$360,000',
+      coveragePercent: '88%',
+    },
+    assets: [
+      { name: 'Bitcoin', value: '$210,000', status: 'Fully insured' },
+      { name: 'Ethereum', value: '$90,000', status: 'Fully insured' },
+      { name: 'NFTs', value: '$85,000', status: 'Fully insured' },
+      { name: 'Others', value: '$25,500', status: 'Fully insured' },
+    ],
+  },
+]
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % slides.length
+}
+
+const prevSlide = () => {
+  currentSlide.value = (currentSlide.value - 1 + slides.length) % slides.length
+}
+
+// Auto slide every 6 seconds
+let interval
+onMounted(() => {
+  interval = setInterval(nextSlide, 6000)
+})
+onUnmounted(() => {
+  clearInterval(interval)
+})
+
 // Lifecycle hook
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
@@ -845,5 +977,24 @@ onMounted(() => {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+.transition-opacity {
+  transition:
+    opacity 0.7s ease-in-out,
+    transform 0.7s ease-in-out;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  width: max-content;
 }
 </style>
