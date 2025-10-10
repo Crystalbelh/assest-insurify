@@ -95,7 +95,10 @@
           </div>
 
           <!-- Right Card -->
-          <div class="md:w-1/2 flex justify-center">
+          <div>
+            <img :src="slide.img" class="w-[220px] translate-x-[200px]" alt="" />
+          </div>
+          <!-- <div class="md:w-1/2 flex justify-center">
             <div class="bg-white p-6 rounded-2xl shadow-2xl max-w-md">
               <div class="bg-gray-100 rounded-xl p-4 mb-4">
                 <div class="flex justify-between mb-2">
@@ -121,7 +124,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <!-- Navigation Buttons -->
@@ -238,7 +241,15 @@
           </div>
 
           <div class="md:w-1/2">
-            <div class="bg-gray-50 p-8 rounded-2xl">
+            <div>
+              <img src="../assets/images/demo1.png" class="w-[500px]" alt="" />
+              <img
+                src="../assets/images/phone-demo1.png"
+                class="absolute w-[100px] translate-y-[-180px]"
+                alt=""
+              />
+            </div>
+            <!-- <div class="bg-gray-50 p-8 rounded-2xl">
               <h3 class="text-2xl font-bold text-secondary mb-6">Our Mission</h3>
               <p class="text-gray-600 mb-6">
                 To build trust in the digital economy by providing comprehensive insurance solutions
@@ -263,7 +274,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -736,10 +747,10 @@ const contactForm = ref({
 
 // Navigation links
 const navItems = ref([
-  { id: 'home', name: 'Home', href: '#home' },
-  { id: 'about', name: 'About', href: '#about' },
-  { id: 'services', name: 'Services', href: '#services' },
-  { id: 'contact', name: 'Contact Us', href: '#contact' },
+  { id: 'home', name: 'Home', href: '/' },
+  { id: 'about', name: 'About', href: '/about' },
+  { id: 'services', name: 'Services', href: '/services' },
+  { id: 'contact', name: 'Contact Us', href: '/contact-us' },
 ])
 
 // Services list
@@ -878,7 +889,8 @@ const slides = [
       portfolio: '$245,780',
       insured: '$208,913',
       coveragePercent: '85%',
-    },
+        },
+    img: 'src/assets/images/phone-demo2.png',
     assets: [
       { name: 'Bitcoin', value: '$152,400', status: 'Fully insured' },
       { name: 'Ethereum', value: '$68,250', status: 'Fully insured' },
@@ -896,7 +908,9 @@ const slides = [
       portfolio: '$312,000',
       insured: '$280,000',
       coveragePercent: '90%',
-    },
+      },
+    
+    img: 'src/assets/images/phone-demo3.png',
     assets: [
       { name: 'Bitcoin', value: '$180,000', status: 'Fully insured' },
       { name: 'Solana', value: '$42,000', status: 'Fully insured' },
@@ -915,6 +929,7 @@ const slides = [
       insured: '$360,000',
       coveragePercent: '88%',
     },
+    img: 'src/assets/images/phone-demo1.png',
     assets: [
       { name: 'Bitcoin', value: '$210,000', status: 'Fully insured' },
       { name: 'Ethereum', value: '$90,000', status: 'Fully insured' },

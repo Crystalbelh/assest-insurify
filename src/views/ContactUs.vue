@@ -8,7 +8,7 @@
       <div class="container mx-auto px-4 flex justify-between items-center">
         <div class="flex items-center">
           <div class="w-10 h-10 bg-primary rounded-full mr-3"></div>
-          <span class="text-xl font-bold text-secondary">SecureVault</span>
+          <span class="text-xl font-bold text-secondary">Assest Insurify</span>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -41,7 +41,7 @@
             {{ item.name }}
           </a>
           <button
-            class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300"
+            class="cursor-pointer bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300"
           >
             Get Started
           </button>
@@ -62,7 +62,7 @@
             {{ item.name }}
           </a>
           <button
-            class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300"
+            class="cursor-pointer bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300"
           >
             Get Started
           </button>
@@ -71,7 +71,7 @@
     </header>
 
     <!-- Contact Page Hero -->
-    <section class="pt-32 pb-20 bg-gradient-to-br from-secondary to-gray-900 text-white">
+    <section class="pt-32 pb-20 bg-gradient-to-br from-[#1c3452] to-gray-900 text-white">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-in">Get In Touch With Us</h1>
         <p class="text-xl mb-8 text-gray-300 max-w-3xl mx-auto fade-in">
@@ -82,12 +82,12 @@
           class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in"
         >
           <button
-            class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
+            class="cursor-pointer bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
           >
             Schedule a Consultation
           </button>
           <button
-            class="border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-secondary transition-colors duration-300"
+            class="cursor-pointer border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1c3452] transition-colors duration-300"
           >
             Emergency Claims
           </button>
@@ -120,7 +120,7 @@
             <p class="text-gray-600 mb-6">{{ option.description }}</p>
             <div class="text-primary font-semibold">{{ option.details }}</div>
             <button
-              class="mt-6 bg-secondary text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+              class="cursor-pointer mt-6 bg-secondary text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300"
             >
               {{ option.buttonText }}
             </button>
@@ -202,7 +202,7 @@
                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
                   required
                 >
-                  <option value="" disabled selected>Select a subject</option>
+                  <option value="" disabled>Select a subject</option>
                   <option value="general">General Inquiry</option>
                   <option value="quote">Request a Quote</option>
                   <option value="claim">File a Claim</option>
@@ -232,13 +232,13 @@
                 />
                 <label for="consent" class="ml-2 text-sm text-gray-600">
                   I agree to the <a href="#" class="text-primary hover:underline">privacy policy</a>
-                  and consent to SecureVault contacting me.
+                  and consent to Assest Insurify contacting me.
                 </label>
               </div>
 
               <button
                 type="submit"
-                class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
+                class="cursor-pointer w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
                 :disabled="!contactForm.consent"
                 :class="{ 'opacity-50 cursor-not-allowed': !contactForm.consent }"
               >
@@ -286,7 +286,9 @@
                   <p class="text-gray-600">
                     123 Blockchain Avenue,<br />Digital District, NY 10001
                   </p>
-                  <button class="mt-2 text-primary font-medium hover:underline flex items-center">
+                  <button
+                    class="cursor-pointer mt-2 text-primary font-medium hover:underline flex items-center"
+                  >
                     Get Directions
                     <svg
                       class="w-4 h-4 ml-1"
@@ -353,7 +355,7 @@
                 </div>
                 <div>
                   <h3 class="text-xl font-bold text-secondary mb-2">Email</h3>
-                  <p class="text-gray-600">info@securevault.com</p>
+                  <p class="text-gray-600">info@Assest Insurify.com</p>
                   <p class="text-sm text-gray-500 mt-1">We respond within 24 hours</p>
                 </div>
               </div>
@@ -436,7 +438,7 @@
           <div v-for="(faq, index) in faqs" :key="index" class="mb-6 border-b border-gray-200 pb-6">
             <button
               @click="toggleFaq(index)"
-              class="flex justify-between items-center w-full text-left focus:outline-none"
+              class="cursor-pointer flex justify-between items-center w-full text-left focus:outline-none"
             >
               <h3 class="text-lg font-semibold text-secondary">{{ faq.question }}</h3>
               <svg
@@ -464,7 +466,7 @@
         <div class="text-center mt-8">
           <p class="text-gray-600 mb-4">Still have questions?</p>
           <button
-            class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
+            class="cursor-pointer bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
           >
             Contact Our Support Team
           </button>
@@ -479,7 +481,7 @@
           <div>
             <div class="flex items-center mb-4">
               <div class="w-8 h-8 bg-primary rounded-full mr-3"></div>
-              <span class="text-xl font-bold">SecureVault</span>
+              <span class="text-xl font-bold">Assest Insurify</span>
             </div>
             <p class="text-gray-400 mb-4">
               Protecting your digital wealth with comprehensive insurance solutions.
@@ -594,7 +596,7 @@
                 class="px-4 py-2 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary w-full"
               />
               <button
-                class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-green-600 transition-colors duration-300"
+                class="cursor-pointer bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-green-600 transition-colors duration-300"
               >
                 Subscribe
               </button>
@@ -604,7 +606,7 @@
 
         <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>
-            &copy; 2023 SecureVault. All rights reserved. |
+            &copy; 2023 Assest Insurify. All rights reserved. |
             <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a> |
             <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
           </p>
@@ -614,7 +616,129 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const scrolled = ref(false)
+const mobileMenuOpen = ref(false)
+const activeSection = ref('contact')
+
+const contactForm = ref({
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  subject: '',
+  message: '',
+  consent: false,
+})
+
+const navItems = ref([
+  { id: 'home', name: 'Home', href: '/' },
+  { id: 'about', name: 'About', href: '/about' },
+  { id: 'services', name: 'Services', href: '/services' },
+  { id: 'contact', name: 'Contact Us', href: '/contact-us' },
+])
+
+const contactOptions = ref([
+  {
+    id: 1,
+    title: 'General Inquiries',
+    description: 'Have questions about our services or need more information?',
+    details: 'Response within 24 hours',
+    icon: 'fas fa-envelope',
+    buttonText: 'Send Email',
+  },
+  {
+    id: 2,
+    title: 'Claims Support',
+    description: 'Need to file a claim or check the status of an existing claim?',
+    details: '24/7 emergency line available',
+    icon: 'fas fa-headset',
+    buttonText: 'Call Now',
+  },
+  {
+    id: 3,
+    title: 'Sales & Quotes',
+    description: 'Interested in our insurance plans or need a customized quote?',
+    details: 'Get a quote in minutes',
+    icon: 'fas fa-chart-line',
+    buttonText: 'Get Quote',
+  },
+])
+
+const faqs = ref([
+  {
+    question: 'What types of digital assets do you insure?',
+    answer:
+      'We insure a wide range of digital assets including cryptocurrencies (Bitcoin, Ethereum, etc.), NFTs, digital art, tokenized assets, and more. Contact us for a complete list of covered assets.',
+    open: false,
+  },
+  {
+    question: 'How long does the claims process take?',
+    answer:
+      'Most claims are processed within 7-10 business days. Emergency claims can be expedited to 48-72 hours. The exact timeline depends on the complexity of the claim and required documentation.',
+    open: false,
+  },
+  {
+    question: 'Do you offer international coverage?',
+    answer:
+      'Yes, we provide coverage in over 45 countries worldwide. Our policies are designed to protect your digital assets regardless of your location, with some regional restrictions.',
+    open: false,
+  },
+  {
+    question: 'What security measures do you have in place?',
+    answer:
+      'We employ industry-leading security protocols including multi-signature wallets, cold storage solutions, regular security audits, and comprehensive cybersecurity insurance to protect both our systems and your assets.',
+    open: false,
+  },
+  {
+    question: 'Can I adjust my coverage as my portfolio grows?',
+    answer:
+      'Absolutely. We offer flexible policies that can be adjusted as your digital asset portfolio changes. You can increase or decrease coverage with a simple policy amendment.',
+    open: false,
+  },
+])
+
+const toggleMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+const toggleFaq = (index) => {
+  faqs.value[index].open = !faqs.value[index].open
+}
+
+const submitContactForm = () => {
+  if (!contactForm.value.consent) {
+    // safeguard; button is disabled anyway, but keep for safety
+    return
+  }
+  // In a real app you'd send the data to a backend here
+  alert('Thank you for your message! We will get back to you soon.')
+  contactForm.value = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+    consent: false,
+  }
+}
+
+const handleScroll = () => {
+  scrolled.value = window.scrollY > 50
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  handleScroll()
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+</script>
 
 <style scoped>
 /* Custom color definitions */
@@ -662,5 +786,10 @@ html {
 
 .fade-in {
   animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* small helper for rotating faq chevron smoothly */
+.rotate-180 {
+  transform: rotate(180deg);
 }
 </style>
