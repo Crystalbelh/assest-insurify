@@ -75,7 +75,7 @@
 
           <!-- Right Card -->
           <div>
-            <img :src="slide.img" class="w-[220px] translate-x-[200px]" alt="" />
+            <img :src="slide.img" class="w-[220px] hidden md:inline translate-x-[200px]" alt="" />
           </div>
           <!-- <div class="md:w-1/2 flex justify-center">
             <div class="bg-white p-6 rounded-2xl shadow-2xl max-w-md">
