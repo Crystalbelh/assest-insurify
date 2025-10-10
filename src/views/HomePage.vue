@@ -2,7 +2,7 @@
   <div>
     <!-- Header/Navigation -->
     <header
-      class="fixed w-full bg-white shadow-md z-50 transition-all duration-300"
+      class="fixed w-full bg-white shadow-md z-50 transition-all duration-300 py-10"
       :class="{ 'py-2': scrolled, 'py-4': !scrolled }"
     >
       <div class="container mx-auto px-4 flex justify-between items-center">
