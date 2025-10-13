@@ -299,45 +299,6 @@
             </div>
         </footer>
     </div>
-    </section>
-
-
-
-
-    <section>
-        <div class="my-30 h-150 lg:h-100  py-10 ">
-            <div class="text-center text-3xl font-bold font-sans">Our Patners</div>
-
-            <div class=" gap-10 grid grid-cols-2 lg:grid lg:grid-cols-4 px-10 my-15 ">
-                <div class=" h-50"><img src="/public/images/sv.png" class="h-full w-full object-cover"></div>
-                <div class=" h-50"><img src="/public/images/sv.png" class="h-full w-full object-cover"></div>
-                <div class=" h-50"><img src="/public/images/sv.png" class="h-full w-full object-cover"></div>
-                <div class=" h-50"><img src="/public/images/sv.png" class="h-full w-full object-cover"></div>
-
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-    <!-- Call to Action -->
-    <section class="py-16 text-white text-center" style="background-color: #1c3452;">
-        <h2 class="text-3xl font-bold mb-4">Let’s Build Something Great Together</h2>
-        <p class="mb-6">Start your next project with us — we’re ready when you are.</p>
-        <a href="/contact" class="inline-block px-8 py-3 font-semibold rounded-lg"
-            style="background-color: #7cbe3f; color: #1c3452;">Contact Us</a>
-    </section>
-
-    <footer class="py-8 text-center text-sm text-gray-500 bg-gray-100">
-        &copy; <span id="year"></span> Digital Co. All rights reserved.
-    </footer>
-
-
 
 </template>
 
