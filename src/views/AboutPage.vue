@@ -163,7 +163,6 @@
                     </p>
                 </div>
 
-                <img src="/src/assets/images/ledger.png" alt="">
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
                     <div v-for="partner in partners" :key="partner.id" class="flex justify-center">
                         <div class="bg-gray-50 p-6 rounded-2xl w-32 h-32 flex items-center justify-center">
@@ -477,7 +476,7 @@ const partners = ref([
     { id: 6, img: 'tokenpocket' },
     { id: 7, img: 'cryptocom' },
     { id: 8, img: 'ledger' },
-    { id: 9, img: 'exodus' },
+    { id: 9, img: 'exodous' },
     { id: 10, img: '1inch' },
     { id: 11, img: 'bybit' },
     { id: 12, img: 'safepal' },
