@@ -1,48 +1,7 @@
 <template>
   <div>
     <!-- Header/Navigation -->
-    <header class="fixed w-full bg-white shadow-md z-50 transition-all duration-300"
-      :class="{ 'py-2': scrolled, 'py-4': !scrolled }">
-      <div class="container mx-auto px-4 flex justify-between items-center">
-        <div class="flex items-center">
-          <div class="w-10 h-10 bg-primary rounded-full mr-3"></div>
-          <span class="text-xl font-bold text-secondary">Asset Insurify</span>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button @click="toggleMenu" class="md:hidden text-secondary">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-8">
-          <a v-for="item in navItems" :key="item.id" :href="item.href"
-            class="text-secondary font-medium hover:text-primary transition-colors duration-300"
-            :class="{ 'text-primary': activeSection === item.id }">
-            {{ item.name }}
-          </a>
-          <button
-            class="cursor-pointer bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300">
-            Get Started
-          </button>
-        </nav>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div v-if="mobileMenuOpen" class="md:hidden bg-white py-4 px-4 shadow-lg">
-        <nav class="flex flex-col space-y-4">
-          <a v-for="item in navItems" :key="item.id" :href="item.href"
-            class="text-secondary font-medium hover:text-primary transition-colors duration-300"
-            :class="{ 'text-primary': activeSection === item.id }" @click="mobileMenuOpen = false">
-            {{ item.name }}
-          </a>
-          <button
-            class="bg-primary text-white cursor-pointer px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300">
-            Get Started
-          </button>
-        </nav>
-      </div>
-    </header>
+    <HeaderComp/>
 
     <section id="home"
       class="pt-32 pb-20 bg-gradient-to-br from-[#1c3452] to-gray-900 text-white relative overflow-hidden">
@@ -62,14 +21,14 @@
               {{ slide.description }}
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <button
+              <a :href="slide.url"
                 class="bg-primary cursor-pointer text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300">
                 {{ slide.cta1 }}
-              </button>
-              <button
+              </a>
+              <a :href="slide.url2"
                 class="border cursor-pointer border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1c3452] transition-colors duration-300">
                 {{ slide.cta2 }}
-              </button>
+              </a>
             </div>
           </div>
 
@@ -77,34 +36,7 @@
           <div>
             <img :src="slide.img" class="w-[220px] hidden md:inline translate-x-[200px]" alt="" />
           </div>
-          <!-- <div class="md:w-1/2 flex justify-center">
-            <div class="bg-white p-6 rounded-2xl shadow-2xl max-w-md">
-              <div class="bg-gray-100 rounded-xl p-4 mb-4">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-600">Portfolio Value</span>
-                  <span class="text-secondary font-bold">{{ slide.stats.portfolio }}</span>
-                </div>
-                <div class="h-2 bg-gray-300 rounded-full mb-2">
-                  <div
-                    class="h-full bg-primary rounded-full"
-                    :style="{ width: slide.stats.coveragePercent }"
-                  ></div>
-                </div>
-                <div class="flex justify-between text-sm">
-                  <span class="text-gray-600">Insured: {{ slide.stats.insured }}</span>
-                  <span class="text-primary">{{ slide.stats.coveragePercent }} covered</span>
-                </div>
-              </div>
-              <div class="grid grid-cols-2 gap-4">
-                <div v-for="(asset, i) in slide.assets" :key="i" class="bg-gray-50 p-4 rounded-lg">
-                  <div class="text-sm text-gray-600 mb-1">{{ asset.name }}</div>
-                  <div class="font-bold text-secondary">{{ asset.value }}</div>
-                  <div class="text-xs text-primary">{{ asset.status }}</div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        </div>
+         </div>
 
         <!-- Navigation Buttons -->
         <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
@@ -246,10 +178,12 @@
                   <span class="text-gray-600">{{ feature }}</span>
                 </li>
               </ul>
-              <button
-                class="cursor-pointer w-full bg-secondary text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300">
-                Learn More
-              </button>
+              <a href="/about">
+                <button
+                  class="cursor-pointer w-full bg-secondary text-white py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300">
+                  Learn More
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -408,7 +342,7 @@
                   </div>
                   <div>
                     <h4 class="font-bold text-lg">Email</h4>
-                    <p class="text-gray-300">info@Assest Insurify.com</p>
+                    <p class="text-gray-300">info@assetsinsurify.com</p>
                   </div>
                 </div>
 
@@ -435,107 +369,16 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <div class="flex items-center mb-4">
-              <div class="w-8 h-8 bg-primary rounded-full mr-3"></div>
-              <span class="text-xl font-bold">Assest Insurify</span>
-            </div>
-            <p class="text-gray-400 mb-4">
-              Protecting your digital wealth with comprehensive insurance solutions.
-            </p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12z">
-                  </path>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
-                  </path>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
-                  </path>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul class="space-y-2">
-              <li>
-                <a href="/" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a>
-              </li>
-              <li>
-                <a href="/about" class="text-gray-400 hover:text-white transition-colors duration-300">About Us</a>
-              </li>
-              <li>
-                <a href="/services" class="text-gray-400 hover:text-white transition-colors duration-300">Services</a>
-              </li>
-              <li>
-                <a href="/contact-us" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Services</h3>
-            <ul class="space-y-2">
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Crypto Insurance</a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">NFT Protection</a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Exchange Coverage</a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Wallet Security</a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-            <p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates.</p>
-            <div class="flex">
-              <input type="email" placeholder="Your email"
-                class="px-4 py-2 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary w-full" />
-              <button
-                class="cursor-pointer bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-green-600 transition-colors duration-300">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Assest Insurify. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <FooterComp/>
   </div>
 </template>
 
 <script setup>
+import FooterComp from '@/components/FooterComp.vue'
+import HeaderComp from '@/components/HeaderComp.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 // Reactive state variables
-const scrolled = ref(false)
-const mobileMenuOpen = ref(false)
-const activeSection = ref('home')
 const contactForm = ref({
   firstName: '',
   lastName: '',
@@ -543,14 +386,6 @@ const contactForm = ref({
   subject: '',
   message: '',
 })
-
-// Navigation links
-const navItems = ref([
-  { id: 'home', name: 'Home', href: '/' },
-  { id: 'about', name: 'About', href: '/about' },
-  { id: 'services', name: 'Services', href: '/services' },
-  { id: 'contact', name: 'Contact Us', href: '/contact-us' },
-])
 
 // Services list
 const services = ref([
@@ -635,10 +470,6 @@ const testimonials = ref([
   },
 ])
 
-// Menu toggle handler
-const toggleMenu = () => {
-  mobileMenuOpen.value = !mobileMenuOpen.value
-}
 
 // Contact form submit handler
 const submitContactForm = () => {
@@ -654,27 +485,6 @@ const submitContactForm = () => {
   }
 }
 
-// Scroll behavior and active section detection
-const handleScroll = () => {
-  scrolled.value = window.scrollY > 50
-
-  const sections = ['home', 'about', 'services', 'contact']
-  const scrollPosition = window.scrollY + 100
-
-  for (const section of sections) {
-    const element = document.getElementById(section)
-    if (element) {
-      const offsetTop = element.offsetTop
-      const offsetHeight = element.offsetHeight
-
-      if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-        activeSection.value = section
-        break
-      }
-    }
-  }
-}
-
 const currentSlide = ref(0)
 
 const slides = [
@@ -684,6 +494,8 @@ const slides = [
       'Comprehensive insurance solutions for cryptocurrencies, NFTs, and digital investments. Protect your digital wealth from theft, loss, and cyber threats.',
     cta1: 'Get Protected Today',
     cta2: 'Learn More',
+    url: 'https://app.assetsinsurify.com/register',
+    url2: '/about',
     stats: {
       portfolio: '$245,780',
       insured: '$208,913',
@@ -703,12 +515,13 @@ const slides = [
       'Automatic insurance coverage for top digital assets. Focus on investing while we handle your risk protection.',
     cta1: 'Start Now',
     cta2: 'See How It Works',
+    url: 'https://app.assetsinsurify.com/register',
+    url2: '/about',
     stats: {
       portfolio: '$312,000',
       insured: '$280,000',
       coveragePercent: '90%',
     },
-
     img: 'src/assets/images/phone-demo3.png',
     assets: [
       { name: 'Bitcoin', value: '$180,000', status: 'Fully insured' },
@@ -721,8 +534,10 @@ const slides = [
     title: 'Stay Ahead with Advanced Coverage Plans',
     description:
       'Customizable digital asset insurance designed for traders, collectors, and businesses — full protection made simple.',
-    cta1: 'Customize Plan',
-    cta2: 'View Pricing',
+    cta1: 'Secure Now',
+    cta2: 'Learn More',
+    url: 'https://app.assetsinsurify.com/register',
+    url2: '/about',
     stats: {
       portfolio: '$410,500',
       insured: '$360,000',
@@ -737,6 +552,7 @@ const slides = [
     ],
   },
 ]
+
 
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % slides.length
@@ -755,11 +571,6 @@ onUnmounted(() => {
   clearInterval(interval)
 })
 
-// Lifecycle hook
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-  handleScroll()
-})
 </script>
 
 <style scoped>
