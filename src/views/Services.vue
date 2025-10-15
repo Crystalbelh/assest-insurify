@@ -68,7 +68,7 @@
                         <div class="absolute bottom-4 left-4">
                             <div
                                 class="w-10 h-10 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-2">
-                                <i :class="service.icon" class="text-white text-lg"></i>
+                                <i :class="service.icon" class=" text-black text-lg"></i>
                             </div>
                             <h3 class="text-xl font-bold text-white">{{ service.title }}</h3>
                         </div>
@@ -467,7 +467,7 @@ const services = ref([
         ],
         coverageLimit: 'Up to $5M',
         premium: '1.5% annually',
-        image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+        image: '/src/assets/images/crypto-insurance.jpeg'
     },
     {
         id: 2,
@@ -482,7 +482,7 @@ const services = ref([
         ],
         coverageLimit: 'Up to $2M',
         premium: '2% annually',
-        image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+        image: '/src/assets/images/nft-protection.jpeg'
     },
     {
         id: 3,
@@ -497,7 +497,7 @@ const services = ref([
         ],
         coverageLimit: 'Up to $50M',
         premium: 'Custom pricing',
-        image: 'https://images.unsplash.com/photo-1642784353723-64da2d9d5d88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+        image: '/src/assets/images/xchange-coverage.jpeg'
     },
     {
         id: 4,
@@ -512,7 +512,7 @@ const services = ref([
         ],
         coverageLimit: 'Up to $3M',
         premium: '1.8% annually',
-        image: 'https://images.unsplash.com/photo-1626618012641-bfbca5a31239?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+        image: '/src/assets/images/wallet-security.jpeg'
     }
 ])
 const navItems = ref([

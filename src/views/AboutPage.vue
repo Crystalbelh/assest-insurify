@@ -82,13 +82,8 @@
                         </div>
                     </div>
                     <div class="md:w-1/2 flex justify-center">
-                        <div class="relative">
-                            <img src="../assets/images/about-story.jpg" alt="Our Story"
-                                class="rounded-2xl shadow-lg max-w-md">
-                            <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-2xl shadow-lg">
-                                <div class="text-3xl font-bold">2020</div>
-                                <div class="text-sm">Year Founded</div>
-                            </div>
+                        <div class="w-[30%]">
+                            <img src="/src/assets/images/phone-demo2.png" alt="">
                         </div>
                     </div>
                 </div>
