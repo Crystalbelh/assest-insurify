@@ -2,7 +2,6 @@
     <div>
         <!-- Header/Navigation -->
         <HeaderComp />
-
         <!-- Hero Section -->
         <section class="pt-32 pb-20 bg-gradient-to-br from-[#1c3452] to-gray-900 text-white">
             <div class="container mx-auto px-4 text-center">
@@ -120,7 +119,7 @@
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
                     <div v-for="partner in partners" :key="partner.id" class="flex justify-center">
                         <div class="bg-gray-50 p-6 rounded-2xl w-32 h-32 flex items-center justify-center">
-                            <img :src="`/src/assets/images/${partner.img}.png`" :alt="`${partner.img}`">
+                            <img :src="partner.img" :alt="`${partner.img}`">
                         </div>
                     </div>
                 </div>
@@ -135,28 +134,22 @@
                     Join thousands of satisfied clients who trust Asset Insurify with their digital wealth
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="/auth/register">
-                      <button
-                          class="cursor-pointer bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-                          Get Started Today
-                      </button>
-                    </a>
-                    <a href="/contact-us">
-                      <button
-                          class="cursor-pointer border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#7cbe3f] transition-colors duration-300">
-                          Contact Our Team
-                      </button>
-                    </a>
+                    <button
+                        class="cursor-pointer bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                        Get Started Today
+                    </button>
+                    <button
+                        class="cursor-pointer border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#7cbe3f] transition-colors duration-300">
+                        Contact Our Team
+                    </button>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <FooterComp />
+        <FooterComp/>
     </div>
-
 </template>
-
 
 
 <style scoped>
@@ -213,11 +206,27 @@ html {
 }
 </style>
 
-
 <script setup>
 import FooterComp from '@/components/FooterComp.vue'
 import HeaderComp from '@/components/HeaderComp.vue'
 import { ref } from 'vue'
+
+import metamask from '@/assets/images/metamask.png'
+import trustwallet from '@/assets/images/trustwallet.png'
+import kraken from '@/assets/images/kraken.png'
+import binance from '@/assets/images/binance.png'
+import zerion from '@/assets/images/zerion.png'
+import tokenpocket from '@/assets/images/tokenpocket.png'
+import cryptocom from '@/assets/images/cryptocom.png'
+import ledger from '@/assets/images/ledger.png'
+import exodous from '@/assets/images/exodous.png'
+import bybit from '@/assets/images/bybit.png'
+import safepal from '@/assets/images/safepal.png'
+import bitget from '@/assets/images/bitget.png'
+import okx from '@/assets/images/okx.png'
+import safe from '@/assets/images/safe.png'
+import mewallet from '@/assets/images/mewallet.png'
+import Linch from '@/assets/images/1inch.png'
 
 // Company values
 const values = ref([
@@ -274,26 +283,26 @@ const milestones = ref([
         description: 'Introduced specialized insurance products for NFT collections and digital art.'
     }
 ])
+
 // Partners
 const partners = ref([
-    { id: 1, img: 'metamask' },
-    { id: 2, img: 'trustwallet' },
-    { id: 3, img: 'kraken' },
-    { id: 4, img: 'binance' },
-    { id: 5, img: 'zerion' },
-    { id: 6, img: 'tokenpocket' },
-    { id: 7, img: 'cryptocom' },
-    { id: 8, img: 'ledger' },
-    { id: 9, img: 'exodous' },
-    { id: 10, img: '1inch' },
-    { id: 11, img: 'bybit' },
-    { id: 12, img: 'safepal' },
-    { id: 13, img: 'bitget' },
-    { id: 14, img: 'okx' },
-    { id: 14, img: 'safe' },
-    { id: 14, img: 'mewallet' },
+    { id: 1, img: metamask },
+    { id: 2, img: trustwallet },
+    { id: 3, img: kraken },
+    { id: 4, img: binance },
+    { id: 5, img: zerion },
+    { id: 6, img: tokenpocket },
+    { id: 7, img: cryptocom },
+    { id: 8, img: ledger },
+    { id: 9, img: exodous },
+    { id: 10, img: Linch },
+    { id: 11, img: bybit },
+    { id: 12, img: safepal },
+    { id: 13, img: bitget },
+    { id: 14, img: okx },
+    { id: 14, img: safe },
+    { id: 14, img: mewallet },
 ])
-
 
 </script>
 

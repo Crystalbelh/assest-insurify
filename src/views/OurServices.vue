@@ -307,6 +307,10 @@
 import FooterComp from '@/components/FooterComp.vue';
 import HeaderComp from '@/components/HeaderComp.vue';
 import { ref } from 'vue'
+import insurance from '@/assets/images/crypto-insurance.jpeg'
+import nftProtection from '@/assets/images/nft-protection.jpeg'
+import coverage from "@/assets/images/xchange-coverage.jpeg"
+import security from '@/assets/images/wallet-security.jpeg'
 
 // Services list with all four services
 const services = ref([
@@ -323,7 +327,7 @@ const services = ref([
         ],
         coverageLimit: 'Up to $5M',
         premium: '1.5% annually',
-        image: '/src/assets/images/crypto-insurance.jpeg'
+        image: insurance
     },
     {
         id: 2,
@@ -338,7 +342,7 @@ const services = ref([
         ],
         coverageLimit: 'Up to $2M',
         premium: '2% annually',
-        image: '/src/assets/images/nft-protection.jpeg'
+        image: nftProtection
     },
     {
         id: 3,
@@ -353,7 +357,7 @@ const services = ref([
         ],
         coverageLimit: 'Up to $50M',
         premium: 'Custom pricing',
-        image: '/src/assets/images/xchange-coverage.jpeg'
+        image: coverage
     },
     {
         id: 4,
@@ -368,7 +372,7 @@ const services = ref([
         ],
         coverageLimit: 'Up to $3M',
         premium: '1.8% annually',
-        image: '/src/assets/images/wallet-security.jpeg'
+        image: security
     }
 ])
 </script>

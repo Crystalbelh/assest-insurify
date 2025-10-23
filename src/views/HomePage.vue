@@ -377,6 +377,9 @@
 import FooterComp from '@/components/FooterComp.vue'
 import HeaderComp from '@/components/HeaderComp.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
+import slideImgOne from '@/assets/images/phone-demo2.png'
+import slideImgTwo from '@/assets/images/phone-demo3.png'
+import slideImgThree from '@/assets/images/phone-demo1.png'
 
 // Reactive state variables
 const contactForm = ref({
@@ -501,7 +504,7 @@ const slides = [
       insured: '$208,913',
       coveragePercent: '85%',
     },
-    img: 'src/assets/images/phone-demo2.png',
+    img: slideImgOne,
     assets: [
       { name: 'Bitcoin', value: '$152,400', status: 'Fully insured' },
       { name: 'Ethereum', value: '$68,250', status: 'Fully insured' },
@@ -522,7 +525,7 @@ const slides = [
       insured: '$280,000',
       coveragePercent: '90%',
     },
-    img: 'src/assets/images/phone-demo3.png',
+    img: slideImgTwo,
     assets: [
       { name: 'Bitcoin', value: '$180,000', status: 'Fully insured' },
       { name: 'Solana', value: '$42,000', status: 'Fully insured' },
@@ -543,7 +546,7 @@ const slides = [
       insured: '$360,000',
       coveragePercent: '88%',
     },
-    img: 'src/assets/images/phone-demo1.png',
+    img: slideImgThree,
     assets: [
       { name: 'Bitcoin', value: '$210,000', status: 'Fully insured' },
       { name: 'Ethereum', value: '$90,000', status: 'Fully insured' },
